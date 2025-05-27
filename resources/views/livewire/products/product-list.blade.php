@@ -101,16 +101,9 @@
                                     {{ $product->id }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        @if ($product->image_path)
-                                            <div class="flex-shrink-0 h-10 w-10 mr-3">
-                                                <img class="h-10 w-10 rounded-full object-cover" src="{{ Storage::url($product->image_path) }}" alt="{{ $product->name }}">
-                                            </div>
-                                        @endif
-                                        <div>
-                                            <div class="text-sm font-medium text-gray-900">{{ $product->name }}</div>
-                                            <div class="text-sm text-gray-500">{{ Str::limit($product->description, 50) }}</div>
-                                        </div>
+                                    <div>
+                                        <div class="text-sm font-medium text-gray-900">{{ $product->name }}</div>
+                                        <div class="text-sm text-gray-500">{{ Str::limit($product->description, 50) }}</div>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">

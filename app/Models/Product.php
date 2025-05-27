@@ -23,7 +23,6 @@ class Product extends Model
         'expiry_date',
         'category',
         'manufacturer',
-        'image_path',
     ];
 
     /**

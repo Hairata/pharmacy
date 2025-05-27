@@ -67,24 +67,7 @@
                         @error('description') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
                     </div>
 
-                    <!-- Image -->
-                    <div>
-                        <label for="image" class="block text-sm font-medium text-gray-700">Image du produit</label>
-                        <div class="mt-1 flex items-center">
-                            @if ($image)
-                                <div class="mr-4">
-                                    <img src="{{ $image->temporaryUrl() }}" alt="Prévisualisation" class="h-20 w-20 object-cover rounded-md">
-                                </div>
-                            @elseif ($image_path)
-                                <div class="mr-4">
-                                    <img src="{{ Storage::url($image_path) }}" alt="Image actuelle" class="h-20 w-20 object-cover rounded-md">
-                                </div>
-                            @endif
-                            <input wire:model="image" type="file" id="image" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
-                        </div>
-                        <div wire:loading wire:target="image" class="text-sm text-gray-500 mt-1">Chargement...</div>
-                        @error('image') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
-                    </div>
+
 
                     <!-- Boutons d'action -->
                     <div class="flex justify-end space-x-3">

@@ -66,11 +66,6 @@
                                 <span class="block text-sm font-medium text-gray-500">Ville</span>
                                 <span class="block mt-1 text-sm text-gray-900">{{ $client->city ?? 'Non spécifiée' }}</span>
                             </div>
-                            
-                            <div>
-                                <span class="block text-sm font-medium text-gray-500">Code postal</span>
-                                <span class="block mt-1 text-sm text-gray-900">{{ $client->postal_code ?? 'Non spécifié' }}</span>
-                            </div>
                         </div>
                     </div>
                 </div>

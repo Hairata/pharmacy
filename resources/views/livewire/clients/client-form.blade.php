@@ -42,13 +42,7 @@
                                 @error('name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                             </div>
                             
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                                <div class="mt-1">
-                                    <input type="email" wire:model="email" id="email" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="email@exemple.com">
-                                </div>
-                                @error('email') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
-                            </div>
+
                             
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700">Téléphone <span class="text-red-500">*</span></label>
@@ -95,13 +89,7 @@
                                 @error('city') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                             </div>
                             
-                            <div>
-                                <label for="postal_code" class="block text-sm font-medium text-gray-700">Code postal</label>
-                                <div class="mt-1">
-                                    <input type="text" wire:model="postal_code" id="postal_code" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="75000">
-                                </div>
-                                @error('postal_code') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
-                            </div>
+
                         </div>
                     </div>
                     

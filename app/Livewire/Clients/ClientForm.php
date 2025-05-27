@@ -20,11 +20,9 @@ class ClientForm extends Component
     
     protected $rules = [
         'name' => 'required|string|max:255',
-        'email' => 'nullable|email|max:255',
         'phone' => 'required|string|max:20',
         'address' => 'nullable|string|max:255',
         'city' => 'nullable|string|max:100',
-        'postal_code' => 'nullable|string|max:20',
         'date_of_birth' => 'nullable|date',
         'health_insurance_number' => 'nullable|string|max:50',
     ];
@@ -53,21 +51,13 @@ class ClientForm extends Component
     
     public function save()
     {
-        if ($this->isEditing) {
-            $this->rules['email'] = 'nullable|email|max:255|unique:clients,email,' . $this->clientId;
-        } else {
-            $this->rules['email'] = 'nullable|email|max:255|unique:clients';
-        }
-        
         $this->validate();
         
         $data = [
             'name' => $this->name,
-            'email' => $this->email,
             'phone' => $this->phone,
             'address' => $this->address,
             'city' => $this->city,
-            'postal_code' => $this->postal_code,
             'date_of_birth' => $this->date_of_birth,
             'health_insurance_number' => $this->health_insurance_number,
         ];
@@ -79,7 +69,7 @@ class ClientForm extends Component
         } else {
             Client::create($data);
             session()->flash('success', 'Client créé avec succès.');
-            $this->reset(['name', 'email', 'phone', 'address', 'city', 'postal_code', 'date_of_birth', 'health_insurance_number']);
+            $this->reset(['name', 'phone', 'address', 'city', 'date_of_birth', 'health_insurance_number']);
         }
         
         $this->dispatch('refreshClients');

@@ -20,7 +20,6 @@ return new class extends Migration
             $table->date('expiry_date')->nullable();
             $table->string('category')->nullable();
             $table->string('manufacturer')->nullable();
-            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }

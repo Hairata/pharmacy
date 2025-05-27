@@ -31,7 +31,6 @@ class ProductForm extends Component
         'expiry_date' => 'nullable|date',
         'category' => 'nullable|string|max:255',
         'manufacturer' => 'nullable|string|max:255',
-        'image' => 'nullable|image|max:2048',
     ];
     
     public function mount($productId = null)
@@ -53,7 +52,6 @@ class ProductForm extends Component
         $this->expiry_date = $product->expiry_date ? $product->expiry_date->format('Y-m-d') : null;
         $this->category = $product->category;
         $this->manufacturer = $product->manufacturer;
-        $this->image_path = $product->image_path;
     }
     
     public function save()
@@ -70,16 +68,6 @@ class ProductForm extends Component
             'manufacturer' => $this->manufacturer,
         ];
         
-        if ($this->image) {
-            // Si on édite un produit et qu'il a déjà une image, supprimer l'ancienne
-            if ($this->isEditing && $this->image_path) {
-                Storage::disk('public')->delete($this->image_path);
-            }
-            
-            $imagePath = $this->image->store('products', 'public');
-            $data['image_path'] = $imagePath;
-        }
-        
         if ($this->isEditing) {
             $product = Product::findOrFail($this->productId);
             $product->update($data);
@@ -87,7 +75,7 @@ class ProductForm extends Component
         } else {
             Product::create($data);
             session()->flash('success', 'Produit créé avec succès.');
-            $this->reset(['name', 'description', 'price', 'stock_quantity', 'expiry_date', 'category', 'manufacturer', 'image']);
+            $this->reset(['name', 'description', 'price', 'stock_quantity', 'expiry_date', 'category', 'manufacturer']);
         }
         
         $this->dispatch('refreshProducts');

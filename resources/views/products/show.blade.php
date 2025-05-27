@@ -24,11 +24,7 @@
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">
                 <div class="flex flex-col md:flex-row">
-                    @if ($product->image_path)
-                        <div class="md:w-1/3 mb-4 md:mb-0 md:mr-6">
-                            <img src="{{ Storage::url($product->image_path) }}" alt="{{ $product->name }}" class="w-full h-auto rounded-lg object-cover shadow-md">
-                        </div>
-                    @endif
+                    
                     <div class="md:w-2/3">
                         <h2 class="text-xl font-bold text-gray-900 mb-4">{{ $product->name }}</h2>
                         

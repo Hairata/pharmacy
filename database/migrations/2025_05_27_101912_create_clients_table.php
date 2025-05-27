@@ -14,11 +14,9 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->nullable()->unique();
             $table->string('phone')->nullable();
             $table->text('address')->nullable();
             $table->string('city')->nullable();
-            $table->string('postal_code')->nullable();
             $table->date('date_of_birth')->nullable();
             $table->string('health_insurance_number')->nullable()->unique();
             $table->timestamps();
